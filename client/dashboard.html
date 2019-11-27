@@ -1,0 +1,42 @@
+<head>
+    <script src="./dashbord.js">
+        console.log(moment().format('L'))
+    </script>
+
+    <style type="text/css">
+        HTML CSSResult EDIT ON body {
+            margin: 40px;
+        }
+        
+        .wrapper {
+            display: grid;
+            grid-template-columns: 16.6666667% 16.6666667% 16.6666667% 16.6666667% 16.6666667% 16.6666667%;
+            grid-gap: 10px;
+            background-color: #fff;
+            color: #444;
+        }
+        
+        .box {
+            background-color: #444;
+            color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            font-size: 100%;
+        }
+        
+        @media only screen and (max-width: 640px) {
+            .wrapper {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<div class="wrapper">
+    <div id="0" class="box a">Sunday</div>
+    <div id="1" class="box b">Monday</div>
+    <div id="2" class="box c">Tuesday</div>
+    <div id="3" class="box d">Thursday</div>
+    <div id="4" class="box e">Wendensday</div>
+    <div id="5" class="box f">Friday</div>
+</div>

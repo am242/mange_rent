@@ -1,0 +1,215 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="./index.js">
+    </script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        .form_rent {
+            flex: 50%;
+            font-family: 'Open Sans Condensed', arial, sans;
+            width: 500px;
+            padding: 30px;
+            background: #FFFFFF;
+            margin: 50px auto;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+            -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+            -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+        }
+        
+        .agenda_view {
+            flex: 50%;
+            font-family: 'Open Sans Condensed', arial, sans;
+            width: 200px;
+            padding: 30px;
+            background: #FFFFFF;
+            margin: 50px auto;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+            -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+            -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+        }
+        /* 
+        .form_rent {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 400px 200px 20px;
+            grid-auto-columns: 100px;
+            grid-column: 3;
+            padding-left: 10px;
+        }
+        */
+        
+        .form_rent h2 {
+            background: #4D4D4D;
+            text-transform: uppercase;
+            font-family: 'Open Sans Condensed', sans-serif;
+            color: #797979;
+            font-size: 18px;
+            font-weight: 100;
+            padding: 20px;
+            margin: -30px -30px 30px -30px;
+        }
+        
+        .form_rent input[type="text"],
+        .form_rent input[type="date"],
+        .form_rent input[type="datetime"],
+        .form_rent input[type="email"],
+        .form_rent input[type="number"],
+        .form_rent input[type="search"],
+        .form_rent input[type="time"],
+        .form_rent input[type="url"],
+        .form_rent input[type="password"],
+        .form_rent textarea,
+        .form_rent select {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            outline: none;
+            display: block;
+            width: 100%;
+            padding: 7px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            background: transparent;
+            margin-bottom: 10px;
+            font: 16px Arial, Helvetica, sans-serif;
+            height: 45px;
+        }
+        
+        .form_rent textarea {
+            resize: none;
+            overflow: hidden;
+        }
+        
+        .form_rent input[type="button"],
+        .form_rent input[type="submit"] {
+            -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+            -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+            box-shadow: inset 0px 1px 0px 0px #45D6D6;
+            background-color: #2CBBBB;
+            border: 1px solid #27A0A0;
+            display: inline-block;
+            cursor: pointer;
+            color: #FFFFFF;
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-size: 14px;
+            padding: 8px 18px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        
+        .form_rent input[type="button"]:hover,
+        .form_rent input[type="submit"]:hover {
+            background: linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+            background-color: #34CACA;
+        }
+        /*  
+        .button {
+            border-radius: 5px;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            margin: 4px 2px;
+            cursor: pointer;
+            width: 100%;
+            float: right;
+        }
+        */
+        
+        .lessons_list {
+            padding: 40px 20px 20px 20px;
+        }
+        
+        #total_qty {
+            float: right;
+        }
+        
+        #total_label {
+            float: center;
+            padding-left: 55%;
+        }
+        
+        .row {
+            display: flex;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .agenda_view {
+                flex: 100%
+            }
+        }
+    </style>
+</head>
+
+<body onload="insertFieldsContent()">
+    <div class="row">
+
+        <div id="form_rent" class="form_rent">
+
+            <h2> Rent computers</h2>
+
+            <form method="POST" name="registerForm" onsubmit="return validateForm()" action="http://localhost:3001/addRentNew/">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Teacher:</label>
+                    <select class="form-control" id="teacher_select" name="teacher_select">
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                    <div class="col-10">
+                        <input class="form-control" type="date" value="2011-08-19" name="date_input" id="date_input" oninput="getAgendaByDate()">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Grade:</label>
+                    <div class="col-10">
+                        <select class="form-control" name="grade" oninput="calcCompPerHouer()">
+                            <option>ז' א</option>
+                            <option>ז' ב</option>
+                            <option>ח' א</option>
+                            <option>ח' ב</option>
+                            <option>ט' א</option>
+                            <option>ט' א</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Hour:</label>
+                    <label id="total_label">Total for hour:</label>
+                    <label id="total_qty"></label>
+                    <select class="form-control" id="hour" name="hour" oninput="calcCompPerHouer()">
+                        <option value="09:00 - 10:00">09:00 - 10:00</option>
+                        <option value="10:00 - 11:00">10:00 - 11:00</option>
+                        <option value="11:00 - 12:00">11:00 - 12:00</option>
+                        <option value="12:00 - 13:00">12:00 - 13:00</option>
+                        <option value="13:00 - 14:00">13:00 - 14:00</option>
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label for="example-number-input" class="col-2 col-form-label">Number</label>
+                    <div class="col-10">
+                        <input class="form-control" type="number" value="0" max="50" name="comp_qty" id="comp_qty">
+                    </div>
+                </div>
+                <div>
+                    <input class="button" type="submit" value="Submit">
+                </div>
+                </br>
+                </br>
+
+            </form>
+        </div>
+        <div class="agenda_view">
+            <div class="lessons_list">
+                <ul id="agenda_list">
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
